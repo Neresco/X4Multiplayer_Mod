@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content version="900" id="x4mp_stream" name="X4MP Stream" description="Client-side server->client object stream handler with interpolation smoothing for X4MP." author="Markus" date="2026-08-13" save="0" enabled="1">
+  <dependency id="x4native" optional="false" />
+  <dependency id="x4mp" optional="false" />
+  <text language="44" description="Client-side stream smoothing for X4MP." name="X4MP Stream"/>
+</content>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  x4mp custom factions — one unique faction per player (host + each client).
+
+  The vanilla game only has a single "player" faction. In multiplayer every
+  connected player must be distinguishable, so we add a dedicated faction per
+  slot:
+    x4mp_host        -> the server / host player
+    x4mp_client_1..8 -> up to 8 connecting clients
+
+  Each is a minimal hidden faction (no economy, no police, no diplomacy) whose
+  ships are owned by that player only. Relations are locked so they never drift
+  with gameplay; the host keeps its own reputation via the vanilla "player"
+  faction (see x4mp.cpp: the host's own ship stays "player" so the game's
+  reputation system keeps working; client GHOST ships get these unique ids).
+-->
+<diff>
+  <add sel="/factions">
+    <faction id="x4mp_host" name="{90001,1}" description="{90001,2}" shortname="{90001,3}" prefixname="{90001,4}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+    <faction id="x4mp_client_1" name="{90001,11}" description="{90001,12}" shortname="{90001,13}" prefixname="{90001,14}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+    <faction id="x4mp_client_2" name="{90001,21}" description="{90001,22}" shortname="{90001,23}" prefixname="{90001,24}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+    <faction id="x4mp_client_3" name="{90001,31}" description="{90001,32}" shortname="{90001,33}" prefixname="{90001,34}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+    <faction id="x4mp_client_4" name="{90001,41}" description="{90001,42}" shortname="{90001,43}" prefixname="{90001,44}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+    <faction id="x4mp_client_5" name="{90001,51}" description="{90001,52}" shortname="{90001,53}" prefixname="{90001,54}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+    <faction id="x4mp_client_6" name="{90001,61}" description="{90001,62}" shortname="{90001,63}" prefixname="{90001,64}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+    <faction id="x4mp_client_7" name="{90001,71}" description="{90001,72}" shortname="{90001,73}" prefixname="{90001,74}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+    <faction id="x4mp_client_8" name="{90001,81}" description="{90001,82}" shortname="{90001,83}" prefixname="{90001,84}" behaviourset="default" tags="hidden">
+      <color ref="faction_player" />
+      <icon active="faction_player" inactive="faction_player" />
+      <relations locked="1" />
+    </faction>
+  </add>
+</diff>

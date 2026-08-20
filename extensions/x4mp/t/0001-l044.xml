@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language id="44">
+  <page id="90001" title="X4MP">
+    <t id="1">X4MP Host</t>
+    <t id="2">The host player of this multiplayer session.</t>
+    <t id="3">Host</t>
+    <t id="4">X4MP</t>
+    <t id="11">X4MP Client 1</t>
+    <t id="12">A connected client player.</t>
+    <t id="13">Client 1</t>
+    <t id="14">X4MP</t>
+    <t id="21">X4MP Client 2</t>
+    <t id="22">A connected client player.</t>
+    <t id="23">Client 2</t>
+    <t id="24">X4MP</t>
+    <t id="31">X4MP Client 3</t>
+    <t id="32">A connected client player.</t>
+    <t id="33">Client 3</t>
+    <t id="34">X4MP</t>
+    <t id="41">X4MP Client 4</t>
+    <t id="42">A connected client player.</t>
+    <t id="43">Client 4</t>
+    <t id="44">X4MP</t>
+    <t id="51">X4MP Client 5</t>
+    <t id="52">A connected client player.</t>
+    <t id="53">Client 5</t>
+    <t id="54">X4MP</t>
+    <t id="61">X4MP Client 6</t>
+    <t id="62">A connected client player.</t>
+    <t id="63">Client 6</t>
+    <t id="64">X4MP</t>
+    <t id="71">X4MP Client 7</t>
+    <t id="72">A connected client player.</t>
+    <t id="73">Client 7</t>
+    <t id="74">X4MP</t>
+    <t id="81">X4MP Client 8</t>
+    <t id="82">A connected client player.</t>
+    <t id="83">Client 8</t>
+    <t id="84">X4MP</t>
+  </page>
+</language>

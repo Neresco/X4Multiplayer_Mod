@@ -1,0 +1,24 @@
+Category,Feature,Status,Thin-client?,Notes / Limitation
+Networking,Host / join (in-game menu + launcher),✅ Working,Yes,Both machines render; menu or auto-start
+Networking,TCP consolidated transport (1 port),✅ Working,Yes,Default. UDP option also available
+Networking,Reconnection (no drop loop),✅ Working,Yes,Stable 30+ min verified
+Networking,Save sync (client loads host save),✅ Working,Yes,Client copies host's save before launch
+Core sync,Player position / movement,✅ Working,Yes,Player ship is active (not inert); streamed to all
+Core sync,Ship position sync (same ships everywhere),✅ Working,Yes,Now flicker-free via glide convergence
+Core sync,Other players visible (ghost ships),✅ Working,Yes,Distinct real factions; never pruned/bound
+Core sync,Camera snap (client flies into your sector),✅ Working,Yes,Host teleports its view to client on join
+Core sync,Sector-entry glide (no teleport),✅ Working,Yes,X4MP_GLIDE_SPEED / X4MP_GLIDE_MAX
+Stations,Host-built stations -> clients,✅ Implemented,Yes,STA stream; baseline prevents resending old stations; verified
+Stations,Clients-built stations -> host,✅ Implemented,Yes,ACT BUILD; host spawns + broadcasts to others
+Trading,Ship cargo sync,🟡 Implemented (test),Yes,Player's ship cargo diffed every 5s -> ACT CARGO -> host converges ghost -> relays
+Trading,Station inventory sync,🟡 Implemented (test),Yes,Discrete trade relayed host-authoritatively (ACT TRADE); host applies to its station + relays; all clients converge. Buys instant (DropCargo bulk); sells converge (AddTradeWare single, bounded by ship cargo)
+Trading,Credits sync,⚪ Not implemented,--,No API to read player credits or set an NPC faction's money pool (cosmetic - you trade with your own ship's credits locally)
+Trading,Station own-economy sync,⚪ Not implemented,--,A station's own production/consumption over time diverges across instances; only player trades sync
+Combat,Kills (a ship destroyed),🟡 Implemented (test),Yes,MD Killed event -> ACT KILL -> host RemoveComponent + broadcast
+Combat,Player death / respawn,🟡 Implemented (test),Yes,MD Killed + player check -> ACT PLAYERDIED -> ghost removed, relayed
+Combat,Shots / projectiles / damage,⚪ Not implemented,--,No Linux targeted-order or hull setter API (needs RE of the Linux binary)
+Boarding,Player can board + capture (local operation),🟡 Implemented (test),Yes,Inert exemption (MD BoardingOperationStarted/Removed) lets the local boarding run in thin-client mode
+Boarding,Capture result -> all clients,🟡 Implemented (test),Yes,MD EntityChangedOwner -> ACT CAPTURE -> host SetComponentOwner + broadcast
+Boarding,Boarding operation (marines / phases) on other clients,⚪ Not implemented,--,Needs CreateBoardingOperation + phase sync to recreate on peers; future work
+Client sim,Thin-client (host-driven ships),✅ Working,This mode,INERT=1 (default): NPC ships inert, no local AI
+Client sim,Hybrid (local sim for ships),✅ Working,Alt mode,INERT=0: local AI runs, reconciled; can flicker

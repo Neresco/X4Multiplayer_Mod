@@ -1,0 +1,6 @@
+{
+    "library": "native/x4mp.so",
+    "priority": 50,
+    "min_api_version": 1,
+    "autoreload": false
+}

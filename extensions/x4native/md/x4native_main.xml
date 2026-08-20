@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="X4Native"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="md.xsd">
+  <cues>
+
+    <!-- Stage 2a: Signal Lua when save data is loaded (entity IDs valid, but gamestart MD cues NOT yet fired).
+         Extensions can start initializing but must NOT rely on set_known or other gamestart effects. -->
+    <cue name="x4native_GameLoaded" instantiate="true">
+      <conditions>
+        <event_game_loaded />
+      </conditions>
+      <actions>
+        <debug_text text="'X4Native: MD signalling game_loaded to Lua'" filter="general"/>
+        <raise_lua_event name="'x4native.game_loaded'" />
+      </actions>
+    </cue>
+
+    <!-- Stage 2b: Signal Lua when game world is fully initialized (all gamestart MD cues complete).
+         NOTE: event_game_started only fires for NEW GAME, not save loads. -->
+    <cue name="x4native_GameStarted" instantiate="true">
+      <conditions>
+        <event_game_started />
+      </conditions>
+      <actions>
+        <debug_text text="'X4Native: MD signalling game_started to Lua'" filter="general"/>
+        <raise_lua_event name="'x4native.game_started'" />
+      </actions>
+    </cue>
+
+    <!-- Stage 2c: Signal Lua when universe generation is complete (all stations built).
+         Fires for BOTH new game and save loads. This is the definitive "world ready" signal.
+         XSD: "Event for when the universe generation process has been completed
+         (all stations have been built) at game start or when loading a savegame."
+         Binary: NotifyUniverseGenerated (0x1409A49A0) dispatches U::UniverseGeneratedEvent
+         after GodEngine completes. -->
+    <cue name="x4native_UniverseReady" instantiate="true">
+      <conditions>
+        <event_universe_generated />
+      </conditions>
+      <actions>
+        <debug_text text="'X4Native: MD signalling universe_ready to Lua'" filter="general"/>
+        <raise_lua_event name="'x4native.universe_ready'" />
+      </actions>
+    </cue>
+
+    <!-- Stage 3: Signal Lua on every game save. -->
+    <cue name="x4native_GameSaved" instantiate="true">
+      <conditions>
+        <event_game_saved />
+      </conditions>
+      <actions>
+        <debug_text text="'X4Native: MD signalling game_saved to Lua'" filter="general"/>
+        <raise_lua_event name="'x4native.game_saved'" />
+      </actions>
+    </cue>
+
+  </cues>
+</mdscript>

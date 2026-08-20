@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content version="900" id="x4native" name="X4Native" description="Extension that allows for native includes of cpp shared objects into the X4 game (Linux port). Useful for advanced extensions." author="eg3r" date="2026-03-15" save="0" enabled="1">
+  <text language="44" description="Extension that allows for native includes of cpp shared objects into the X4 game (Linux port). Useful for advanced extensions." name="X4Native"/>
+</content>
