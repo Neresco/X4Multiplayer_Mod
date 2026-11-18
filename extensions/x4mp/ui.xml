@@ -3,5 +3,6 @@
        xsi:noNamespaceSchemaLocation="../../ui/core/addon.xsd">
   <environment type="menus">
     <file name="ui/x4mp_menu.lua" />
+    <file name="ui/x4mp_join_menu.lua" />
   </environment>
 </addon>

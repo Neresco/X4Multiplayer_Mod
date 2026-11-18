@@ -1,5 +1,20 @@
 # X4MP — X4: Foundations LAN Multiplayer Mod
 
+## Experimental in-game joining
+
+This draft adds a shared Windows/Linux in-game server picker and Player name
+setting, followed by request, compatible snapshot sync/verification, load and
+native joining. It keeps player/graphical-host controls inside X4 and restores
+menu entries after resizing/rebuilding. See [in-game joining](docs/in-game-join.md)
+and [design and validation](docs/design-and-validation.md).
+
+The feature needs the matching native `x4mp_join` bridge and a packaged background
+coordinator from the companion [X4Native_Linux work](https://github.com/H3xx1st/X4Native_Linux/tree/codex/headless-host-and-join).
+The native repository also documents the experimental GPU-free Linux Docker host.
+Do not ship the UI alone against old binaries or present a loaded snapshot as
+verified multiplayer. The legacy launcher/manual-save instructions below describe
+the existing release; they are not the target player flow for the new interface.
+
 Turn **X4: Foundations** (singleplayer) into a **LAN multiplayer** setup:
 one machine runs the **HOST** (the authoritative universe) and one or more
 machines join as **CLIENTS**. Every participant renders a normal X4 window —

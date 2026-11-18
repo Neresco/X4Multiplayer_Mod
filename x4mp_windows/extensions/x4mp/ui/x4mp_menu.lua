@@ -47,14 +47,12 @@ local function trigger_host()
 end
 
 local function trigger_join()
-    local addr = server_address()
-    if api and api.log then api.log(1, "X4MP menu: requesting JOIN -> " .. tostring(addr)) end
-    -- Call the C++ event directly. The x4mp extension subscribes to
-    -- "x4mp_join_request" via api->subscribe(). api.raise_event() dispatches
-    -- through the core event bus to all matching subscriptions.
-    pcall(function()
-        api.raise_event("x4mp_join_request", addr)
-    end)
+    -- This installer may retry after the join UI's installer. Route through
+    -- its controller so the legacy wrapper cannot bypass request/snapshot sync.
+    if type(_G.__X4MP_OPEN_JOIN) == "function" then
+        return _G.__X4MP_OPEN_JOIN()
+    end
+    DebugError("X4MP: in-game join interface is not available; join was not started.")
 end
 
 -- ---------------------------------------------------------------------------
